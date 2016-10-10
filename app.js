@@ -121,7 +121,7 @@ controller.hears('(.*)', ['ambient', 'direct_message', 'direct_mention', 'mentio
                 .pop(), '')
             .slice(1);
 
-        if (message.match[1].charAt(message.match[1].length - 1) == '!') {
+        if (message.match[1].charAt(message.match[1].length - 1) == '!' && data) {
             replytoChannel(bot, message, message.channel, "https://open.spotify.com/track/" + data);
         } else
         if (data) {
