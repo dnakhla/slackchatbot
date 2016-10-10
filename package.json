@@ -1,0 +1,20 @@
+{
+  "name": "vibes",
+  "version": "1.0.0",
+  "description": "slack bot for music",
+  "main": "app.js",
+  "scripts": {
+    "test": "npm haha",
+    "start": "node app.js",
+    "develop": "nodemon app.js"
+  },
+  "author": "dnakhla",
+  "license": "ISC",
+  "dependencies": {
+    "botkit": "^0.2.2",
+    "lodash": "^4.16.4",
+    "spotify": "^0.3.0",
+    "watson-developer-cloud": "^2.4.6"
+  },
+  "devDependencies": {}
+}
