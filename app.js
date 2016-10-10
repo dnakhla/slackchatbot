@@ -115,8 +115,9 @@ controller.hears('(.*)', ['ambient', 'direct_message', 'direct_mention', 'mentio
         }
 
         data = _.map(data, returnTrackObject)
-            .filter(popularityIs(50))
-            .slice(0, 1)
+            .filter(popularityIs(60));
+        var pick = _.random(0, data.length - 1);
+        data = data.slice(pick, pick + 1)
             .reduce((list, result) => list + ',' + result.url.split(':')
                 .pop(), '')
             .slice(1);
