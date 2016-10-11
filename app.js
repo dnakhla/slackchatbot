@@ -101,6 +101,7 @@ controller.hears('(.*)', ['ambient', 'direct_message', 'direct_mention', 'mentio
     if (message.match[1].indexOf(cake.keyword) > -1) {
         cakeReply(bot, message, cake.value + " cakes");
     }
+    var textSearch = message.match[1].charAt(message.match[1].length - 1) == '!' ? message.text.slice(0, -1) : message.text;
     spotify.search({
         type: 'track',
         query: message.text
@@ -116,7 +117,7 @@ controller.hears('(.*)', ['ambient', 'direct_message', 'direct_mention', 'mentio
 
         data = _.map(data, returnTrackObject)
             .filter(popularityIs(60));
-        data = _.shuffle(data)
+        data = _.shuffle(data.slice(0, 10))
             .slice(0, 1)
             .reduce((list, result) => list + ',' + result.url.split(':')
                 .pop(), '')
